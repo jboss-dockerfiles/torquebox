@@ -1,9 +1,9 @@
 FROM jboss/base-jdk:7
 
-ENV TORQUEBOX_VERSION 3.1.1
+ENV TORQUEBOX_VERSION 3.1.2
 
 # Add the TorqueBox distribution to /opt
-RUN curl -L https://d2t70pdxfgqbmq.cloudfront.net/release/org/torquebox/torquebox-dist/$TORQUEBOX_VERSION/torquebox-dist-$TORQUEBOX_VERSION-bin.zip | bsdtar -xf - && mv torquebox-$TORQUEBOX_VERSION torquebox && chmod +x torquebox/jboss/bin/*.sh
+RUN curl -L http://torquebox.org/release/org/torquebox/torquebox-dist/$TORQUEBOX_VERSION/torquebox-dist-$TORQUEBOX_VERSION-bin.zip | bsdtar -xf - && mv torquebox-$TORQUEBOX_VERSION torquebox && chmod +x torquebox/jboss/bin/*.sh torquebox/jruby/bin/*
 
 # Expose the ports we're interested in
 EXPOSE 8080
